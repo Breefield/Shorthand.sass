@@ -1,0 +1,12 @@
+// Width
+@mixin w($n)
+  width: $n+px
+
+// Height
+@mixin h($n)
+  height: $n+px
+  
+// Dimensions
+@mixin d($w,$h)
+  +w($w)
+  +h($h)

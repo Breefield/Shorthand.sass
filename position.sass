@@ -1,0 +1,64 @@
+// -------------------
+// POSITION
+// -------------------
+
+// Position
+@mixin p($p)
+  @if $p==a
+    position: absolute  
+  @else if $p==r
+    position: relative  
+  @else if $p==s
+    position: static
+  @else $p==f
+    position: fixed
+
+// Margin
+@mixin margin($w,$n)
+  @if $w==l
+    margin-left: $n+px
+  @else if $w==r
+    margin-right: $n+px
+  @else if $w==t
+    margin-top: $n+px
+  @else
+    margin-bottom: $n+px
+
+// Margins (horizontal or vertical)
+@mixin margins($w,$n)
+  @if $w==h
+    margin-left: $n+px
+    margin-right: $n+px
+  @else
+    margin-top: $n+px
+    margin-bottom: $n+px
+    
+// Grab a wall
+@mixin grab($w,$n)
+  @if $w==l
+    left: $n+px
+  @else if $w==r
+    right: $n+px
+  @else if $w==t
+    top: $n+px
+  @else
+    bottom: $n+px
+
+// Grab x & y    
+@mixin g($x,$y)
+  +grab(l,$x)
+  +grab(t,$y)
+
+// Move
+@mixin m($x,$y,$p=false)
+  // If not static, use left/top
+  @if $p!=s
+    +g($x,$y)
+  @else
+    // Use margins
+    +margin(l,$x)
+    +margin(t,$y)
+
+  // Are we setting position?
+  @if $p!=false
+    +p($p)
