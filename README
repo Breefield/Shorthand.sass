@@ -1,2 +1,16 @@
 A mixin library for SASS that lets us write styles really effing fast.
-Watch: http://sass-lang.com/docs/yardoc/file.SASS_CHANGELOG.html
+Watch for updates: http://sass-lang.com/docs/yardoc/file.SASS_CHANGELOG.html
+
+Example
+
+---------------- styles.sass ----------------
+@import "ss/shorthand.sass"
+
+.logo
+  background: #FF0000
+  +s(100,100,400,200,a)
+  
+  &:hover
+    background: #FF00FF
+  
+screenshot of styles.sass: http://cl.ly/3F3q3h3j0W041F2G3L0f
