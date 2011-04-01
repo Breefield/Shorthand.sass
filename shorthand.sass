@@ -5,3 +5,9 @@
 @import dimensions.sass
 @import position.sass
 @import letters.sass
+
+
+// Shorthand!
+@mixin s($x=false,$y=false,$w=false,$h=false,$p=s)
+  +m($x,$y,$p)
+  +d($w,$h)

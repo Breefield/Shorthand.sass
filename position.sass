@@ -15,14 +15,15 @@
 
 // Margin
 @mixin margin($w,$n)
-  @if $w==l
-    margin-left: $n+px
-  @else if $w==r
-    margin-right: $n+px
-  @else if $w==t
-    margin-top: $n+px
-  @else
-    margin-bottom: $n+px
+  @if $n!=false
+    @if $w==l
+      margin-left: $n+px
+    @else if $w==r
+      margin-right: $n+px
+    @else if $w==t
+      margin-top: $n+px
+    @else
+      margin-bottom: $n+px
 
 // Margins (horizontal or vertical)
 @mixin margins($w,$n)
@@ -46,11 +47,13 @@
 
 // Grab x & y    
 @mixin g($x,$y)
-  +grab(l,$x)
-  +grab(t,$y)
+  @if $x!=false
+    +grab(l,$x)
+  @if $y!=false
+    +grab(t,$y)
 
 // Move
-@mixin m($x,$y,$p=false)
+@mixin m($x,$y,$p=s)
   // If not static, use left/top
   @if $p!=s
     +g($x,$y)
@@ -58,7 +61,4 @@
     // Use margins
     +margin(l,$x)
     +margin(t,$y)
-
-  // Are we setting position?
-  @if $p!=false
-    +p($p)
+  +p($p)
