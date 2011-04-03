@@ -1,0 +1,15 @@
+@mixin sprite($url=false,$h=false,$a=false)
+  @if $url!=false
+    background-image: url($url)
+  background-position: left top
+  background-repeat: none
+  
+  @if $h!=false
+    &:hover
+      background-position: left ($height * -1)
+  
+    &:active
+      background-position: left bottom
+  @else
+    &:hover
+      background-position: left bottom 
